@@ -1,0 +1,452 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --bg-color: #121212;
+    --panel-bg: #1c1c1c;
+    --card-bg: #2a2a2a;
+    --text-color: #ffffff;
+    --text-secondary: #aaaaaa;
+    --accent-color: #007bff; /* Azul para o botão de login */
+    --inject-button-bg: #ffffff; /* Branco para o botão de Injetar */
+    --inject-button-text: #2a2a2a; /* Texto escuro no botão branco */
+    --button-bg: #444444;
+    --button-hover: #555555;
+    --border-color: #444444;
+    --input-bg: #333333;
+    --slider-track: #444444;
+    --slider-fill: #ffffff;
+    --toggle-active: #007bff; /* Azul para toggles ativos (mais fiel ao screenshot) */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #000; /* Fundo preto para simular o fundo do vídeo */
+    color: var(--text-color);
+    font-size: 14px;
+}
+
+/* --- Mobile Frame Simulation (Ajustado para o visual do screenshot) --- */
+.mobile-frame {
+    width: 375px; /* Largura móvel */
+    height: 100vh; /* Altura total para simular a tela do celular */
+    max-height: 800px;
+    background-color: var(--panel-bg); /* Fundo do app */
+    border-radius: 0; /* Sem bordas arredondadas para simular o app em tela cheia */
+    box-shadow: none;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 15px;
+    background-color: var(--panel-bg); /* O fundo da barra de status parece ser o mesmo do painel */
+    color: var(--text-color);
+    font-size: 13px;
+    font-weight: 700;
+    position: relative;
+    z-index: 10;
+}
+
+.time {
+    /* Cor vermelha sutil para o tempo como no screenshot */
+    color: #ff3b30;
+}
+
+.notch {
+    /* O notch no screenshot é um retângulo preto no topo */
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 25px;
+    background-color: #000;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    /* Ajuste para simular o recorte do iPhone */
+    width: 150px;
+    height: 30px;
+    border-radius: 0 0 20px 20px;
+}
+
+.status-icons {
+    display: flex;
+    gap: 5px;
+    font-size: 11px;
+}
+
+/* --- Panel Container --- */
+.panel-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px 20px 20px; /* Ajuste o padding superior */
+}
+
+.panel-card {
+    width: 100%;
+    max-width: 300px;
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    margin-top: 50px; /* Espaço para o painel aparecer no meio da tela */
+}
+
+/* --- Header Section --- */
+.header {
+    margin-bottom: 15px;
+}
+
+.icon-title {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    background-color: #444;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 700;
+    margin-right: 10px;
+    color: var(--text-color);
+}
+
+.text .title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.text .subtitle {
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+/* --- Tab Buttons --- */
+.tab-buttons {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--button-bg);
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    flex-grow: 1;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.tab-btn.active {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Settings Group (Toggles) --- */
+.settings-group {
+    margin-bottom: 20px;
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.setting-item:last-child {
+    border-bottom: none;
+}
+
+.setting-label {
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+/* --- Custom Toggle Switch --- */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-switch label {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--button-bg);
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.toggle-switch label:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: var(--text-color);
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + label {
+    background-color: var(--toggle-active);
+}
+
+input:checked + label:before {
+    transform: translateX(20px);
+}
+
+/* --- Slider/FOV Section (Screenshot 1) --- */
+.slider-setting {
+    padding: 10px 0;
+    /* Removendo a borda inferior para o último item do grupo */
+    /* border-bottom: 1px solid var(--border-color); */
+    margin-bottom: 10px;
+}
+
+.slider-setting .label-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.slider-setting .label-row span {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.slider-setting .value-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.slider-setting .value-row .percentage {
+    font-size: 14px;
+    font-weight: 700;
+    margin-left: 10px;
+    width: 40px;
+    text-align: right;
+}
+
+.custom-slider {
+    flex-grow: 1;
+    height: 4px;
+    background: var(--slider-track);
+    border-radius: 2px;
+    position: relative;
+}
+
+.custom-slider-fill {
+    height: 100%;
+    width: 50%;
+    background: var(--slider-fill);
+    border-radius: 2px;
+}
+
+.custom-slider-thumb {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background: var(--text-color);
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.slider-setting .footer-label {
+    text-align: center;
+    font-size: 11px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+/* --- Main Button --- */
+.inject-button {
+    width: 100%;
+    background-color: var(--inject-button-bg);
+    color: var(--inject-button-text);
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-bottom: 15px;
+}
+
+.inject-button:hover {
+    background-color: #cccccc;
+}
+
+/* --- Footer Link --- */
+.footer-link {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-weight: 700;
+}
+
+.footer-link i {
+    margin-right: 5px;
+}
+
+/* --- Branding --- */
+.branding {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    opacity: 0.5;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* --- Login View (Screenshot 2) --- */
+.view-content {
+    display: none;
+}
+
+#login-view.active {
+    display: block;
+}
+
+#settings-view {
+    /* Ocultar a view de configurações por padrão */
+    display: none;
+}
+
+.login-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.login-view label {
+    display: block;
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+    align-self: flex-start;
+}
+
+.login-view input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-color);
+    font-size: 16px;
+    margin-bottom: 15px;
+    text-align: center; /* Centraliza o texto da senha */
+}
+
+.login-view .enter-button {
+    width: 100%;
+    background-color: var(--accent-color); /* Azul mais claro para o botão de Entrar */
+    color: var(--card-bg);
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-bottom: 20px;
+}
+
+.login-view .enter-button:hover {
+    background-color: #0056b3;
+}
+
+.login-view .buy-key {
+    font-size: 11px;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-top: 10px;
+}
+
+.login-view .buy-key a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* --- Bottom Navigation (Login View) --- */
+.bottom-nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    margin-top: 50px;
+    border-top: 1px solid var(--border-color); /* Linha divisória sutil */
+}
+
+.bottom-nav button {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: color 0.2s;
+}
+
+.bottom-nav button:hover {
+    color: var(--text-color);
+}
+
+.bottom-nav .check-icon {
+    color: var(--text-color); /* Ícone de check branco */
+}
