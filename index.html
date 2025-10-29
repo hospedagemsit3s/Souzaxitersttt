@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXTERNAL - SLEEP Panel</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Usando Font Awesome para os ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="mobile-frame">
+        <div class="status-bar">
+            <span class="time">21:29</span>
+            <div class="notch"></div>
+            <!-- Ícones de status (simplificados) -->
+            <div class="status-icons">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-three-quarters"></i>
+            </div>
+        </div>
+
+        <div class="panel-container">
+            <div class="panel-card">
+                <div class="header">
+                    <div class="icon-title">
+                        <div class="icon">S</div>
+                        <div class="text">
+                            <div class="title">EXTERNAL - SLEEP</div>
+                            <div class="subtitle">Painel Externo / Versão Mobile</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- View de Login (Screenshot 2) -->
+                <div class="view-content active" id="login-view">
+                    <div class="login-view">
+                        <label for="password-input">Digite a senha para acessar:</label>
+                        <input type="password" id="password-input" value="•••••••••••" readonly>
+                        
+                        <button class="enter-button">Entrar</button>
+                        
+                        <div class="buy-key">
+                            COMPRE KEY COM: <a href="#">@sleepff2</a>
+                        </div>
+
+                        <div class="bottom-nav">
+                            <button><i class="fas fa-chevron-up"></i></button>
+                            <button><i class="fas fa-chevron-down"></i></button>
+                            <button class="check-icon"><i class="fas fa-check"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- View de Configurações (Screenshots 1 e 3) -->
+                <div class="view-content" id="settings-view">
+                    <!-- Tab Buttons (Screenshot 1 & 3) -->
+                    <div class="tab-buttons">
+                        <button class="tab-btn"><i class="fas fa-cog"></i></button>
+                        <button class="tab-btn active"><i class="fas fa-cogs"></i></button>
+                        <button class="tab-btn"><i class="fas fa-cog"></i></button>
+                    </div>
+
+                    <!-- Settings Group 1 (Screenshot 1) -->
+                    <div class="settings-group">
+                        <div class="setting-item">
+                            <span class="setting-label">Aimbot legit</span>
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="aimbot-legit" checked>
+                                <label for="aimbot-legit"></label>
+                            </div>
+                        </div>
+                        <div class="setting-item">
+                            <span class="setting-label">Headtrick</span>
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="headtrick">
+                                <label for="headtrick"></label>
+                            </div>
+                        </div>
+
+                        <!-- Slider/FOV Section (Screenshot 1) -->
+                        <div class="slider-setting">
+                            <div class="label-row">
+                                <span class="label">FOV</span>
+                                <span class="value">Min 100%</span>
+                            </div>
+                            <div class="value-row">
+                                <div class="custom-slider">
+                                    <!-- Apenas para visual, a funcionalidade real precisaria de JS -->
+                                    <div class="custom-slider-fill" style="width: 50%;"></div>
+                                    <div class="custom-slider-thumb" style="left: 50%;"></div>
+                                </div>
+                                <span class="percentage">50%</span>
+                            </div>
+                            <div class="footer-label">CABEÇA</div>
+                        </div>
+                    </div>
+
+                    <!-- Settings Group 2 (Screenshot 3) - Adicionando os itens da segunda aba para completar o visual -->
+                    <!-- Nota: No painel real, esses itens estariam em abas diferentes, mas para a réplica estática, vamos colocá-los juntos para mostrar todos os elementos. -->
+                    <div class="settings-group" style="margin-top: 15px; border-top: 1px solid var(--border-color); padding-top: 10px;">
+                        <div class="setting-item">
+                            <span class="setting-label">Aim new - Risk</span>
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="aim-new" checked>
+                                <label for="aim-new"></label>
+                            </div>
+                        </div>
+                        <div class="setting-item">
+                            <span class="setting-label">Aim scope - Risk</span>
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="aim-scope">
+                                <label for="aim-scope"></label>
+                            </div>
+                        </div>
+                        <div class="setting-item">
+                            <span class="setting-label">No recoil - Risk</span>
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="no-recoil">
+                                <label for="no-recoil"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="inject-button">Injetar Funções no Jogo</button>
+                    
+                    <div class="footer-link">
+                        <i class="fas fa-key"></i> SLEEPFF2
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="branding">sleep</div>
+        </div>
+    </div>
+</body>
+</html>
